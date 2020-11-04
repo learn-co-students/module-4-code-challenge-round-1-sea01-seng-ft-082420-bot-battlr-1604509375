@@ -1,18 +1,17 @@
-import React, { Component } from "react";
+import React from 'react'
+import BotCard from "../components/BotCard"
 
-class BotCollection extends Component {
-  //your code here
+export default function BotCollection({ botCollection, action, removeCard }) {
+  const displayBotCards = botCollection.map(bot => {
+    return <BotCard bot={bot} action={action} removeCard={removeCard} />
+  })
 
-  render() {
-    return (
-      <div className="ui four column grid">
-        <div className="row">
-          {/*...and here..*/}
-          Collection of all bots
-        </div>
+  return (
+    <div className="ui four column grid">
+      <div className="row">
+        {displayBotCards}
+  
       </div>
-    );
-  }
+    </div>
+  )
 }
-
-export default BotCollection;

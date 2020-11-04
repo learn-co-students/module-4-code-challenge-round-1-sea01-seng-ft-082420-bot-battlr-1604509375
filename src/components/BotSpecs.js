@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const botTypeClasses = {
   Assault: "icon military",
@@ -7,7 +7,7 @@ const botTypeClasses = {
   Medic: "icon ambulance",
   Witch: "icon magic",
   Captain: "icon star"
-};
+}
 
 const BotSpecs = props => {
   return (
@@ -53,7 +53,7 @@ const BotSpecs = props => {
             <button
               className="ui button fluid"
               onClick={() =>
-                console.log("connect this to a function that shows all bots")
+                props.back()
               }
             >
               Go Back
@@ -61,9 +61,7 @@ const BotSpecs = props => {
             <button
               className="ui button fluid"
               onClick={() =>
-                console.log(
-                  "connect this to a function that adds this bot to your bot army list"
-                )
+                props.enlist(props.bot)
               }
             >
               Enlist
@@ -72,7 +70,7 @@ const BotSpecs = props => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BotSpecs;
+export default BotSpecs
