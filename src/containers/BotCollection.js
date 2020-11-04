@@ -1,52 +1,17 @@
-import React, { Component } from "react";
-import BotCard from "../components/BotCard";
-import BotSpecs from "../components/BotSpecs";
+import React from 'react'
+import BotCard from "../components/BotCard"
 
-class BotCollection extends Component {
-  
-  state = {
-    currentBot: {}
-  };
+export default function BotCollection({ botCollection, action, removeCard }) {
+  const displayBotCards = botCollection.map(bot => {
+    return <BotCard bot={bot} action={action} removeCard={removeCard} />
+  })
 
-  setCurrentBot = bot => {
-    this.setState({
-      currentBot: bot
-    });
-  };
-
-  clearCurrentBot = () => {
-    this.setState({
-      currentBot: {}
-    });
-  };
-
-  renderBots = () => {
-
-    if (!this.state.currentBot.id) {
-      return (
-        <div className="row">
-          Collection of all bots
-          {this.props.bots.map(bot => (
-            <BotCard key={bot.id} bot={bot} viewBot={this.setCurrentBot} />
-          ))}
-        </div>
-      );
-    } else {
-      return (
-        <BotSpecs
-          bot={this.state.currentBot}
-          enlist={this.props.addToArmy}
-          goBack={this.clearCurrentBot}
-          addToArmy={this.props.addToArmy}
-        />
-      );
-    }
-  };
-
-  render() {
-    return <div className="ui four column grid">{this.renderBots()}</div>;
-  }
+  return (
+    <div className="ui four column grid">
+      <div className="row">
+        {displayBotCards}
+        You have completed your Bot Army. There are no more bots to collect.
+      </div>
+    </div>
+  )
 }
-
-export default BotCollection;
-

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const botTypeClasses = {
   Assault: "icon military",
@@ -7,12 +7,9 @@ const botTypeClasses = {
   Medic: "icon ambulance",
   Witch: "icon magic",
   Captain: "icon star"
-};
+}
 
 const BotSpecs = props => {
-
-  const { bot } = props
-
   return (
     <div className="ui segment">
       <div className="ui two column centered grid">
@@ -56,7 +53,7 @@ const BotSpecs = props => {
             <button
               className="ui button fluid"
               onClick={() =>
-                props.goBack()
+                props.back()
               }
             >
               Go Back
@@ -64,7 +61,7 @@ const BotSpecs = props => {
             <button
               className="ui button fluid"
               onClick={() =>
-                props.addToArmy(bot)
+                props.enlist(props.bot)
               }
             >
               Enlist
@@ -73,7 +70,7 @@ const BotSpecs = props => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BotSpecs;
+export default BotSpecs
