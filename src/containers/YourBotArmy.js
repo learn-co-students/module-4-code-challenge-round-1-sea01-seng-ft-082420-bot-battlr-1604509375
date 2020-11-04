@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import BotCard from "../components/BotCard.js";
+import BotSpecs from "../components/BotSpecs.js"
 
 class YourBotArmy extends Component {
   //your bot army code here...
