@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import BotCard from "../components/BotCard.js";
-import BotSpecs from "../components/BotSpecs.js"
+
 
 class BotCollection extends Component {
-  constructor() {
-    super()
-  }
+  // constructor() {
+  //   super()
+  // }
 
   render() {
     const bots = this.props.bots;
 
-
-
-  var displayBots = bots.map(bot => {return <BotCard bot={bot}></BotCard>})
+    let displayBots = bots.map(bot => <BotCard bot={bot} key={bot.id} handleSelect={this.props.handleSelectFromCollection} handleDeleteForever={this.props.handleDeleteForever}></BotCard>)
     
     return (
       <div className="ui four column grid">
